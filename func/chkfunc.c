@@ -85,7 +85,7 @@ int chkdicc(ficha pos[15]) {
         palmin[i] = tolower(pos[i].c);
     }
     //abre archivo dic_en
-    f = fopen("dic", "r");
+    f = fopen("dic_en", "r");
     
     //mientras no se lea el final del archivo
     while (!feof(f)) {
