@@ -77,7 +77,7 @@ int chkdicc(ficha pos[15]) {
      * la ejecucion del programa y por tanto se entiende que es suficiente.
      */
     int i;
-    FILE *f;
+    FILE * f;
     char dic[50];
     char palmin[15];
     //pasa a minusculas los caracteres de la palabra a comprobar, porque el dicc esta en minusculas
@@ -85,17 +85,22 @@ int chkdicc(ficha pos[15]) {
         palmin[i] = tolower(pos[i].c);
     }
     //abre archivo dic_en
-    f = fopen("dic_en", "rt");
-
+    f = fopen("dic", "r");
+    
     //mientras no se lea el final del archivo
     while (!feof(f)) {
         //lee 15 caracteres de la siguiente linea de f
-        fgets(dic, 15, f);
+        fgets(dic, sizeof(dic), f);
         //quita el caracter nulo de lo leido, ya que palmin no lo tiene
-        dic[strlen(dic) - 1] = '\0';
-
+        for (i = 0; i < strlen(dic); i++)
+        {
+        	if (dic[i]=='\n' || dic[i]=='\r')
+        	{
+        		dic[i]='\0';
+        	}
+        }
         //linea de codigo de comprobacion durante desarrollo
-        //printf("\n\ndic: %s  palmin: %s \n\n", dic, palmin);
+        //printf("\n\ndic: %s len=%d  palmin:  %s len=%d\n\n", dic,strlen(dic), palmin, strlen(palmin));
 
         //compara lo leido del dicc y la palabra a comprobar. si son iguales, devuelve uno y cierra f.
         if (strcmp(dic, palmin) == 0) {

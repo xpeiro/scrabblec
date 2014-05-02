@@ -76,7 +76,7 @@ se han escrito aqui porque el codigo de comunicaciones hace que el otro archivo 
 int main() {
 
     int i = 0, j = 0, njugador = 0, primera = 1, sel = 0, pases = 0;
-
+    
     ficha tab[15][15];
     ficha bolsa[101], vacio = {.c = '\0', .v = -1};
     ficha atril1[7] = {vacio, vacio, vacio, vacio, vacio, vacio, vacio};
@@ -152,7 +152,7 @@ int main() {
                 //se solicitan las letras a cambiar del atril y se leen al buffer cambio
                 printf("\n\n sus letras: \n\n");
                 for (i = 0; i < 7; i++) printf("[%c] ", (*p)[i].c);
-                printf("\n\nLetras que quiere devolver a la bolsa:\n", njugador);
+                printf("\n\nLetras que quiere devolver a la bolsa:\n");
                 scanf("%s", cambio);
                 fflush(stdin);
                 //se cambian las letras, funcion explicada en modulo playfuncman.c
